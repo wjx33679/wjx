@@ -1,5 +1,6 @@
 package com.example.weather;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
@@ -24,6 +25,7 @@ import com.bumptech.glide.Glide;
 import com.example.weather.gson.Forecast;
 import com.example.weather.gson.Utility;
 import com.example.weather.gson.Weather;
+import com.example.weather.service.AutoUpdateService;
 import com.example.weather.util.HttpUtil;
 
 import java.io.IOException;
@@ -186,6 +188,8 @@ public class WeatherActivity extends AppCompatActivity {
                             editor.putString("weather", responseText);
                             editor.apply();
                             showWeatherInfo(weather);
+                            Intent intent = new Intent(WeatherActivity.this, AutoUpdateService.class);
+                            startService(intent);
                         } else {
                             Toast.makeText(WeatherActivity.this, "222", Toast.LENGTH_SHORT).show();
                             Toast.makeText(WeatherActivity.this, "获取天气信息失败", Toast.LENGTH_SHORT).show();
