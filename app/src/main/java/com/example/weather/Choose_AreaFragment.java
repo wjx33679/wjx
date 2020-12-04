@@ -214,6 +214,7 @@ public class Choose_AreaFragment extends Fragment {
                     @Override
                     public void run() {
                         closeProgressDialog();
+                        Toast.makeText(getContext(), "我运行了",Toast.LENGTH_SHORT).show();
                         Toast.makeText(getContext(), "加载失败", Toast.LENGTH_SHORT).show();
                     }
                 });
