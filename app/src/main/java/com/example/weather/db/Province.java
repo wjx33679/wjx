@@ -1,8 +1,9 @@
 package com.example.weather.db;
 
-import org.litepal.crud.DataSupport;
+import org.litepal.LitePal;
+import org.litepal.crud.LitePalSupport;
 
-public class Province extends DataSupport {
+public class Province extends LitePalSupport {
     public  Province province;
     private  int id;
     private String provinceName;
